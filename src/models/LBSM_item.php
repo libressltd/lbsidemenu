@@ -77,7 +77,7 @@ class LBSM_item extends Model
 
     public function children()
     {
-        return $this->hasMany("App\Models\LBSM_item", "parent_id");
+        return $this->hasMany("App\Models\LBSM_item", "parent_id")->orderBy("order_number");
     }
 
 	public function creator()

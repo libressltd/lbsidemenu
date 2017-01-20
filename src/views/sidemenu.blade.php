@@ -23,7 +23,7 @@
 	}
 ?>
 
-@foreach (App\Models\LBSM_item::whereNull("parent_id")->get() as $item)
+@foreach (App\Models\LBSM_item::whereNull("parent_id")->orderBy("order_number")->get() as $item)
 	{!! show_sub($item) !!}
 @endforeach
 
