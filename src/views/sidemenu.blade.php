@@ -8,11 +8,11 @@
 		$title = ($item->title_translated == 1) ? trans($item->title) : $item->title;
 		if ($item->children->count() == 0)
 		{
-			$string .= view("layouts.elements.sidebar_item_single", ["title" => $item->title, "icon" => $item->icon, "url" => $item->url, "id" => $item->id_string]);
+			$string .= view("layouts.elements.sidebar_item_single", ["title" => $title, "icon" => $item->icon, "url" => $item->url, "id" => $item->id_string]);
 		}
 		else
 		{
-			$string .= view("layouts.elements.sidebar_item_multi_open", ["title" => $item->title, "icon" => $item->icon, "id" => $item->id_string]);
+			$string .= view("layouts.elements.sidebar_item_multi_open", ["title" => $title, "icon" => $item->icon, "id" => $item->id_string]);
 			foreach ($item->children as $child)
 			{
 				$string .= show_sub($child);
