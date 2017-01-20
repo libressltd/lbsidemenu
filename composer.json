@@ -3,7 +3,7 @@
     "description": "full stack package allow deep permission system",
     "type": "library",
     "require": {
-        "libressltd/deeppermission": "*",
+        "libressltd/deeppermission": "*"
     },
     "license": "MIT",
     "authors": [
