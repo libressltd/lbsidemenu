@@ -73,7 +73,7 @@ active
 					                	<td>{!! Form::lbText("order_number", null, null, "Order") !!}</td>
 					                	<td>{!! Form::lbSelect2("parent_id", null, App\Models\LBSM_item::all_to_option()) !!}</td>
 	                					<td>{!! Form::lbSelect2multi("roles[]", null, App\Models\Role::all_to_option()) !!}</td>
-	                					<td>{!! Form::lbSelect2multi("roles[]", null, App\Models\Permission::all_to_option()) !!}</td>
+	                					<td>{!! Form::lbSelect2multi("permissions[]", null, App\Models\Permission::all_to_option()) !!}</td>
 					                	<td>{!! Form::lbSubmit() !!}</td>
 					                </tr>
 					                {!! Form::close() !!}

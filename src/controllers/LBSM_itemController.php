@@ -51,6 +51,8 @@ class LBSM_itemController extends Controller
             $item->parent_id = $request->parent_id;
         }
 
+        $item->save();
+
         if ($request->roles)
         {
             $item->roles()->sync($request->roles);
@@ -60,8 +62,6 @@ class LBSM_itemController extends Controller
         {
             $item->permissions()->sync($request->permissions);
         }
-
-        $item->save();
 		
 		return redirect()->back();
     }
