@@ -60,6 +60,27 @@ class LBSM_item extends Model
         return false;
     }
 
+    static public function all_ordered($parent = NULL)
+    {
+        $items;
+
+        if ($parent)
+        {
+            $items = LBSM_item::whereNull("parent_id")->orderBy("order_number")->get();
+        }
+        else
+        {
+            $items = LBSM_item::where("parent_id", $parent->id)->orderBy("order_number")->get();
+        }
+        $array = array();
+        foreach ($items as $item)
+        {
+            $array[] = $item;
+            $array = array_merge($array, LBSM_item::all_ordered($item));
+        }
+        return $array;
+    }
+
     public function roles()
     {
         return $this->belongsToMany("App\Models\Role", "LBSM_item_roles", "item_id", "role_id");

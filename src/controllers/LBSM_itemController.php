@@ -21,7 +21,7 @@ class LBSM_itemController extends Controller
      */
     public function index()
     {
-        $items = LBSM_item::get();
+        $items = LBSM_item::all_ordered();
         return view("libressltd.lbsidemenu.item.index", ["items" => $items]);
     }
 
