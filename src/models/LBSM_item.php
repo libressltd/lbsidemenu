@@ -28,8 +28,6 @@ class LBSM_item extends Model
 
     public function available()
     {
-        Log::useFiles('php://stdout', 'info');
-        Log::info($this);
         $user = Auth::user();
         if ($this->roles->count() == 0 && $this->permissions->count() == 0)
         {
@@ -64,7 +62,7 @@ class LBSM_item extends Model
     {
         $items;
 
-        if ($parent)
+        if (!$parent)
         {
             $items = LBSM_item::whereNull("parent_id")->orderBy("order_number")->get();
         }
