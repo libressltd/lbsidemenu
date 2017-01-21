@@ -8,7 +8,14 @@
 		$title = ($item->title_translated == 1) ? trans($item->title) : $item->title;
 		if ($item->children->count() == 0)
 		{
-			$string .= view("layouts.elements.sidebar_item_single", ["title" => $title, "icon" => $item->icon, "url" => $item->url, "id" => $item->id_string]);
+			if (isset($item->parent))
+			{
+				$string .= view("layouts.elements.sidebar_item_single", ["title" => $title, "icon" => $item->icon, "url" => $item->url, "id" => $item->id_string, "is_child" => true]);
+			}
+			else
+			{
+				$string .= view("layouts.elements.sidebar_item_single", ["title" => $title, "icon" => $item->icon, "url" => $item->url, "id" => $item->id_string]);
+			}
 		}
 		else
 		{
