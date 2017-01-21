@@ -129,9 +129,8 @@ class LBSM_itemController extends Controller
      */
     public function destroy($id)
     {
-    	$permission = Permission::findOrFail($id);
-		$permission->delete();
-		
-		return redirect(url("permission"))->with('dp_announce', trans('deeppermission.alert.permission.deleted'));
+        $item = LBSM_item::findOrFail($id);
+        $item->delete();
+        return redirect()->back();
     }
 }

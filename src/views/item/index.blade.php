@@ -59,7 +59,10 @@ active
 					                		@endforeach
 					                	</td>
 					                	<td>
-					                		<a href="{{ url("/lbsm/item/$item->id/edit") }}" class="btn btn-primary">{{ trans('general.edit') }}</a>
+					                		<a href="{{ url("/lbsm/item/$item->id/edit") }}" class="btn btn-primary"><i class="fa fa-pencil-square-o"></i></a>
+					                		@if ($item->children->count() == 0)
+					                		{!! Form::lbButton("/lbsm/item/$item->id", "delete", "<i class=\"fa fa-trash\"></i>", ["class" => "btn btn-danger"]) !!}
+					                		@endif
 					                	</td>
 					                </tr>
 					                @endforeach
