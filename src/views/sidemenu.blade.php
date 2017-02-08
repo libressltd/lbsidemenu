@@ -28,9 +28,10 @@
 		}
 		return $string;
 	}
+	$root_items = App\Models\LBSM_item::whereNull("parent_id")->with("children", "parent", "roles", "permissions")->orderBy("order_number")->get()
 ?>
 
-@foreach (App\Models\LBSM_item::whereNull("parent_id")->orderBy("order_number")->get() as $item)
+@foreach ($root_items as $item)
 	{!! show_sub($item) !!}
 @endforeach
 
