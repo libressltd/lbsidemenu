@@ -39,7 +39,10 @@ active
 	                	{!! Form::lbSelect2("parent_id", @$item->parent_id, App\Models\LBSM_item::all_to_option(), "Parent") !!}
 	                	{!! Form::lbSelect2multi("roles[]", @$item->roles->pluck('id')->toArray(), App\Models\Role::all_to_option(), "Role") !!}
 	                	{!! Form::lbSelect2multi("permissions[]", @$item->permissions->pluck('id')->toArray(), App\Models\Permission::all_to_option(), "Permissions") !!}
-	                	{!! Form::lbSubmit() !!}
+
+                        <div class="widget-footer" style="text-align: left;">
+		                	{!! Form::lbSubmit() !!}
+	                	</div>
 	                {!! Form::close() !!}
 	            </div>
 			@box_close
