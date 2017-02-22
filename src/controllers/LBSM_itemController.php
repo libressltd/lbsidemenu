@@ -133,4 +133,14 @@ class LBSM_itemController extends Controller
         $item->delete();
         return redirect()->back();
     }
+
+    public function init()
+    {
+        if (LBSM_item::item_exist("sidemenu_lbsm_item"))
+        {
+            $item = new LBSM_item;
+            $item->name = "lbsm.sidemenu.item.title";
+            $item->translated
+        }
+    }
 }

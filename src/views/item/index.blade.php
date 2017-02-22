@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('sidemenu_lbsm')
+@section('sidemenu_lbsm_item')
 active
 @endsection
 
@@ -21,7 +21,7 @@ active
         <article class="col-lg-12">
         	@box_open(trans('lbsm.item.list.title'))
                 <div>
-                    <div class="widget-body">
+                    <div class="widget-body no-padding">
                         <div class="table-responsive">
 							<table class="table table-bordered table-hover">
 								<thead>
@@ -83,6 +83,11 @@ active
 				                </tbody>
 			                </table>
                         </div>
+                        @if (!App\Models\LBSM_item::item_exist("sidemenu_lbsm_item"))
+                        <div class="widget-footer" style="text-align: left;">
+                        	<a class="btn btn-primary" href="/lbsm/item/init">Create sidemenu</a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             @box_close

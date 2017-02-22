@@ -26,6 +26,11 @@ class LBSM_item extends Model
     	return $array;
     }
 
+    static function item_exist($item_id)
+    {
+        return LBSM_item::whereIdString($item_id)->count() > 0;
+    }
+
     public function available()
     {
         $user = Auth::user();

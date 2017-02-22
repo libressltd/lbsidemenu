@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('sidemenu_lbsm')
+@section('sidemenu_lbsm_item')
 active
 @endsection
 
