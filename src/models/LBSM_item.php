@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LIBRESSLtd\LBForm\Traits\LBDatatableTrait;
 use Alsofronie\Uuid\Uuid32ModelTrait;
 use App\Models\Role;
 use App\Models\Permission;
@@ -11,20 +12,9 @@ use Log;
 
 class LBSM_item extends Model
 {
-    use Uuid32ModelTrait;
+    use Uuid32ModelTrait, LBDatatableTrait;
     protected $table = "LBSM_items";
     protected $fillable = ["title", "title_translated", "icon", "url", "id_string", "order_number"];
-    
-    static public function all_to_option()
-    {
-    	$array = array();
-        $array[] = array("name" => "None", "value" => "-1");
-    	foreach (LBSM_item::get() as $item)
-    	{
-    		$array[] = array("name" => $item->title, "value" => $item->id);
-    	}
-    	return $array;
-    }
 
     static function item_exist($item_id)
     {
