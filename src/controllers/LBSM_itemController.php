@@ -140,7 +140,7 @@ class LBSM_itemController extends Controller
         {
             $item = new LBSM_item;
             $item->name = "lbsm.sidemenu.item.title";
-            $item->translated
+            $item->translated = 1;
         }
     }
 }
