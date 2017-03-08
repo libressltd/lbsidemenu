@@ -36,7 +36,7 @@ active
 	                	{!! Form::lbText("url", @$item->url, "URL") !!}
 	                	{!! Form::lbText("id_string", @$item->id_string, "ID") !!}
 	                	{!! Form::lbText("order_number", @$item->order_number, "Order") !!}
-	                	{!! Form::lbSelect2("parent_id", @$item->parent_id, App\Models\LBSM_item::toOption("id_string"), "Parent") !!}
+	                	{!! Form::lbSelect2("parent_id", @$item->parent_id, App\Models\LBSM_item::toOption("id_string", "id", [["name" => "None", "value" => -1]]), "Parent") !!}
 	                	{!! Form::lbSelect2multi("roles[]", @$item->roles->pluck('id')->toArray(), App\Models\Role::toOption("code"), "Role") !!}
 	                	{!! Form::lbSelect2multi("permissions[]", @$item->permissions->pluck('id')->toArray(), App\Models\Permission::toOption("code"), "Permissions") !!}
 

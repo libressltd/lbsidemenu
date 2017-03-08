@@ -74,7 +74,7 @@ active
 					                	<td>{!! Form::lbText("url", null, null, "URL") !!}</td>
 					                	<td>{!! Form::lbText("id_string", null, null, "ID") !!}</td>
 					                	<td>{!! Form::lbText("order_number", null, null, "Order") !!}</td>
-					                	<td>{!! Form::lbSelect2("parent_id", null, App\Models\LBSM_item::toOption("id_string", "id", [["name" => "None", "value" => null]])) !!}</td>
+					                	<td>{!! Form::lbSelect2("parent_id", null, App\Models\LBSM_item::toOption("id_string", "id", [["name" => "None", "value" => -1]])) !!}</td>
 	                					<td>{!! Form::lbSelect2multi("roles[]", null, App\Models\Role::toOption("code")) !!}</td>
 	                					<td>{!! Form::lbSelect2multi("permissions[]", null, App\Models\Permission::toOption("code")) !!}</td>
 					                	<td>{!! Form::lbSubmit() !!}</td>
