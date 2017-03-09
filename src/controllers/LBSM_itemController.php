@@ -50,6 +50,10 @@ class LBSM_itemController extends Controller
         {
             $item->parent_id = $request->parent_id;
         }
+        else
+        {
+            $item->parent_id = null;
+        }
 
         $item->save();
 
@@ -104,6 +108,10 @@ class LBSM_itemController extends Controller
         if ($request->parent_id != -1)
         {
             $item->parent_id = $request->parent_id;
+        }
+        else
+        {
+            $item->parent_id = null;
         }
 
         if ($request->roles)
